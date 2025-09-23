@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamer Mind</title>
+	<link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        body,html {
+            font-family: Arial, sans-serif;
+            text-align: center;
+			background: linear-gradient(to bottom, #152F77, #050F2C);
+            /*background-color: #152F77;*/
+            margin: 0;
+            padding: 0;
+			height: 100%;
+        }
+        h1 {
+            margin: 0;
+			padding-top: 75px;
+            color: #FFFFFF;
+			font-size: 48px;
+        }
+        .button-container {
+            margin-top: 50px;
+        }
+        a.button {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #1453FF;
+            color: #FFFFFF;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        a.button:hover {
+            background-color: #003FEB;
+        }
+		.game-button {
+			text-align: center;
+			display: flex;
+			flex-direction: column; /* apila la imagen arriba del botón */
+			align-items: center;    /* centra horizontalmente */
+			margin-bottom: 30px;    /* separación entre juegos */
+		}
+		.thumbnail {
+			width: 180px;       /* tamaño de la imagen */
+			height: 100px;      /* opcional, puede ser auto */
+			object-fit: cover;  /* recorta si es necesario */
+			border-radius: 12px; /* esquinas redondeadas */
+			margin-bottom: 10px; /* espacio entre imagen y botón */
+		}
+		 .contacto {
+			position: fixed; /* se queda en el fondo mientras se hace scroll */
+			bottom: 10px;    /* distancia desde el borde inferior */
+			right: 10px;     /* distancia desde el borde derecho */
+			background-color: rgba(0, 0, 0, 0.5); /* fondo semitransparente */
+			color: white;
+			padding: 10px 15px;
+			border-radius: 5px;
+			text-decoration: none;
+			transition: background-color 0.3s;
+		  }
+		  .contacto:hover {
+			background-color: rgba(0, 0, 0, 0.8);
+		  }
+
+    </style>
+</head>
+<body>
+    <h1>Gamer Mind</h1>
+    <div class="button-container">
+		<div class="game-button">
+			<img src="wotu.png" alt="WOTU" class="thumbnail">
+			<a class="button" href="https://play.google.com/store/apps/details?id=com.GamerMind.Warriors_of_the_Universe_Online" target="_blank">Warriors of the Universe</a>
+		</div>
+		<div class="game-button">
+			<img src="legendsrpg.png" alt="LegendsRPG" class="thumbnail">
+			<a class="button" href="https://play.google.com/store/apps/details?id=com.gamermind.woturpg" target="_blank">Legends RPG</a>
+		</div>
+    </div>
+	<a href="mailto:gmemicarra@gmail.com" class="contacto">Contact</a>
+</body>
+</html>
