@@ -52,7 +52,7 @@
 			border-radius: 12px; /* esquinas redondeadas */
 			margin-bottom: 10px; /* espacio entre imagen y botón */
 		}
-		 .contacto {
+		.contacto {
 			position: fixed; /* se queda en el fondo mientras se hace scroll */
 			bottom: 10px;    /* distancia desde el borde inferior */
 			right: 10px;     /* distancia desde el borde derecho */
@@ -62,11 +62,26 @@
 			border-radius: 5px;
 			text-decoration: none;
 			transition: background-color 0.3s;
-		  }
-		  .contacto:hover {
+		}
+		.contacto:hover {
 			background-color: rgba(0, 0, 0, 0.8);
-		  }
+		}
+		.social-button {
+		  display: inline-flex;
+		  align-items: center;
+		  justify-content: center;
+		  background-color: #1453FF;
+		  border-radius: 50%;
+		  width: 40px;
+		  height: 40px;
+		  text-decoration: none;
+		  transition: transform 0.2s;
+		}
 
+		.social-button:hover {
+		  transform: scale(1.1);
+		  background-color: #C13584; /* tono más oscuro al pasar el mouse */
+		}
     </style>
 </head>
 <body>
@@ -82,5 +97,11 @@
 		</div>
     </div>
 	<a href="mailto:gmemicarra@gmail.com" class="contacto">Contact</a>
+	<a href="https://instagram.com/gamermind_ig" target="_blank" class="social-button">
+		  <!-- Icono SVG de Instagram -->
+		  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+			<path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-.75a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Z"/>
+		  </svg>
+	</a>
 </body>
 </html>
