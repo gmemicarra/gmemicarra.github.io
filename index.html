@@ -1,119 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="google-site-verification" content="qy2rNu64uJOT1RYDeC06Ib03me_DUPS8xaE6sydh-C8" />
+    <meta name="google-site-verification" content="qy2rNu64uJOT1RYDeC06Ib03me_DUPS8xaE6sydh-C8" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamer Mind</title>
-	<link rel="icon" type="image/png" href="favicon.png">
+    <title>Gamer Mind - Indie Game Studio</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        body,html {
-            font-family: Arial, sans-serif;
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-			background: linear-gradient(to bottom, #152F77, #050F2C);
+            background: linear-gradient(135deg, #0b193d 0%, #152f77 50%, #050f2c 100%);
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
-			min-height: 100%;
+            min-height: 100vh;
+            color: #FFFFFF;
+        }
+        
+        .header {
+            padding: 50px 20px 20px 20px;
         }
         h1 {
             margin: 0;
-			padding-top: 75px;
-            color: #FFFFFF;
-			font-size: 48px;
+            font-size: 52px;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
-        .button-container {
-            margin-top: 50px;
-			padding-bottom: 80px;
+        .subtitle {
+            font-size: 18px;
+            color: #A0C0FF;
+            margin-top: 10px;
+            font-weight: 300;
         }
+
+        /* Contenedor principal de juegos en formato Grid */
+        .games-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 40px auto 100px auto;
+            padding: 0 20px;
+        }
+
+        /* Tarjeta de juego */
+        .game-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            width: 320px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(20, 83, 255, 0.3);
+            border-color: rgba(20, 83, 255, 0.5);
+        }
+
+        /* Banner de la app en la tarjeta */
+        .thumbnail {
+            width: 100%;
+            height: 155px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .game-card:hover .thumbnail {
+            transform: scale(1.02);
+        }
+
+        .game-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 18px 0 8px 0;
+        }
+        .game-description {
+            font-size: 14px;
+            color: #C0D0FF;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1; /* Alinea los botones al final */
+        }
+
+        /* Botones de descarga */
         a.button {
             display: inline-block;
+            width: 100%;
             text-decoration: none;
             background-color: #1453FF;
             color: #FFFFFF;
-            padding: 12px 25px;
-            margin: 10px;
+            padding: 12px 0;
             border-radius: 8px;
-            font-size: 18px;
-            transition: background-color 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(20, 83, 255, 0.4);
         }
         a.button:hover {
             background-color: #003FEB;
+            transform: scale(1.02);
         }
-		.game-button {
-			text-align: center;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-bottom: 30px;
-		}
-		.thumbnail {
-			width: 180px;
-			height: 100px;
-			object-fit: cover;
-			border-radius: 12px;
-			margin-bottom: 10px;
-		}
-		/* Contenedor flotante en la esquina inferior derecha */
-		.footer-links {
-			position: fixed;
-			bottom: 10px;
-			right: 10px;
-			display: flex;
-			align-items: center;
-			gap: 10px;
-			z-index: 1000;
-		}
-		.contacto {
-			background-color: rgba(0, 0, 0, 0.5);
-			color: white;
-			padding: 10px 15px;
-			border-radius: 5px;
-			text-decoration: none;
-			font-size: 14px;
-			transition: background-color 0.3s;
-		}
-		.contacto:hover {
-			background-color: rgba(0, 0, 0, 0.8);
-		}
-		.social-button {
-		  display: inline-flex;
-		  align-items: center;
-		  justify-content: center;
-		  background-color: #1453FF;
-		  border-radius: 50%;
-		  width: 40px;
-		  height: 40px;
-		  text-decoration: none;
-		  transition: transform 0.2s, background-color 0.2s;
-		}
-		.social-button:hover {
-		  transform: scale(1.1);
-		  background-color: #C13584;
-		}
+
+        /* Pie de página flotante */
+        .footer-links {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+        }
+        .contacto {
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            backdrop-filter: blur(5px);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .contacto:hover {
+            background-color: rgba(0, 0, 0, 0.85);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1453FF;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .social-button:hover {
+            transform: scale(1.1);
+            background-color: #C13584;
+        }
     </style>
 </head>
 <body>
-    <h1>Gamer Mind</h1>
-    <div class="button-container">
-		<div class="game-button">
-			<img src="wotu.png" alt="Warriors of the Universe" class="thumbnail">
-			<a class="button" href="https://play.google.com/store/apps/details?id=com.GamerMind.Warriors_of_the_Universe_Online" target="_blank">Warriors of the Universe</a>
-		</div>
-		<div class="game-button">
-			<img src="legendsrpg.png" alt="Legends RPG" class="thumbnail">
-			<a class="button" href="https://play.google.com/store/apps/details?id=com.gamermind.woturpg" target="_blank">Legends RPG</a>
-		</div>
+
+    <div class="header">
+        <h1>Gamer Mind</h1>
+        <div class="subtitle">Independent Game Development Studio</div>
     </div>
 
-	<!-- Pie de página con Contact, Terms of Service e Instagram -->
-	<div class="footer-links">
-		<a href="terms.html" class="contacto">Terms of Service</a>
-		<a href="mailto:gmemicarra@gmail.com" class="contacto">Contact</a>
-		<a href="https://instagram.com/gamermind_ig" target="_blank" class="social-button" title="Instagram">
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-				<path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-.75a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Z"/>
-			</svg>
-		</a>
-	</div>
+    <div class="games-container">
+        <!-- Juego 1 -->
+        <div class="game-card">
+            <img src="wotu.png" alt="Warriors of the Universe" class="thumbnail">
+            <div class="game-title">Warriors of the Universe</div>
+            <div class="game-description">Fast-paced 2D anime fighting game featuring custom characters, transformation modes, singleplayer campaigns, and online multiplayer battles.</div>
+            <a class="button" href="https://play.google.com/store/apps/details?id=com.GamerMind.Warriors_of_the_Universe_Online" target="_blank">Play on Google Play</a>
+        </div>
+
+        <!-- Juego 2 -->
+        <div class="game-card">
+            <img src="legendsrpg.png" alt="Legends RPG" class="thumbnail">
+            <div class="game-title">WOTU Legends RPG</div>
+            <div class="game-description">Explore immersive action RPG mechanics, level up your heroes, unlock powerful abilities, and defeat bosses in an expanding universe.</div>
+            <a class="button" href="https://play.google.com/store/apps/details?id=com.gamermind.woturpg" target="_blank">Play on Google Play</a>
+        </div>
+    </div>
+
+    <!-- Links de pie de página -->
+    <div class="footer-links">
+        <a href="terms.html" class="contacto">Terms of Service</a>
+        <a href="mailto:gmemicarra@gmail.com" class="contacto">Contact</a>
+        <a href="https://instagram.com/gamermind_ig" target="_blank" class="social-button" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-.75a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Z"/>
+            </svg>
+        </a>
+    </div>
+
 </body>
 </html>
