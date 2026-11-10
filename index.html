@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 	<meta name="google-site-verification" content="qy2rNu64uJOT1RYDeC06Ib03me_DUPS8xaE6sydh-C8" />
     <meta charset="UTF-8">
@@ -11,10 +11,9 @@
             font-family: Arial, sans-serif;
             text-align: center;
 			background: linear-gradient(to bottom, #152F77, #050F2C);
-            /*background-color: #152F77;*/
             margin: 0;
             padding: 0;
-			height: 100%;
+			min-height: 100%;
         }
         h1 {
             margin: 0;
@@ -24,6 +23,7 @@
         }
         .button-container {
             margin-top: 50px;
+			padding-bottom: 80px;
         }
         a.button {
             display: inline-block;
@@ -42,26 +42,34 @@
 		.game-button {
 			text-align: center;
 			display: flex;
-			flex-direction: column; /* apila la imagen arriba del botón */
-			align-items: center;    /* centra horizontalmente */
-			margin-bottom: 30px;    /* separación entre juegos */
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 30px;
 		}
 		.thumbnail {
-			width: 180px;       /* tamaño de la imagen */
-			height: 100px;      /* opcional, puede ser auto */
-			object-fit: cover;  /* recorta si es necesario */
-			border-radius: 12px; /* esquinas redondeadas */
-			margin-bottom: 10px; /* espacio entre imagen y botón */
+			width: 180px;
+			height: 100px;
+			object-fit: cover;
+			border-radius: 12px;
+			margin-bottom: 10px;
+		}
+		/* Contenedor flotante en la esquina inferior derecha */
+		.footer-links {
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			z-index: 1000;
 		}
 		.contacto {
-			position: fixed; /* se queda en el fondo mientras se hace scroll */
-			bottom: 10px;    /* distancia desde el borde inferior */
-			right: 10px;     /* distancia desde el borde derecho */
-			background-color: rgba(0, 0, 0, 0.5); /* fondo semitransparente */
+			background-color: rgba(0, 0, 0, 0.5);
 			color: white;
 			padding: 10px 15px;
 			border-radius: 5px;
 			text-decoration: none;
+			font-size: 14px;
 			transition: background-color 0.3s;
 		}
 		.contacto:hover {
@@ -76,12 +84,11 @@
 		  width: 40px;
 		  height: 40px;
 		  text-decoration: none;
-		  transition: transform 0.2s;
+		  transition: transform 0.2s, background-color 0.2s;
 		}
-
 		.social-button:hover {
 		  transform: scale(1.1);
-		  background-color: #C13584; /* tono más oscuro al pasar el mouse */
+		  background-color: #C13584;
 		}
     </style>
 </head>
@@ -89,20 +96,24 @@
     <h1>Gamer Mind</h1>
     <div class="button-container">
 		<div class="game-button">
-			<img src="wotu.png" alt="WOTU" class="thumbnail">
+			<img src="wotu.png" alt="Warriors of the Universe" class="thumbnail">
 			<a class="button" href="https://play.google.com/store/apps/details?id=com.GamerMind.Warriors_of_the_Universe_Online" target="_blank">Warriors of the Universe</a>
 		</div>
 		<div class="game-button">
-			<img src="legendsrpg.png" alt="LegendsRPG" class="thumbnail">
+			<img src="legendsrpg.png" alt="Legends RPG" class="thumbnail">
 			<a class="button" href="https://play.google.com/store/apps/details?id=com.gamermind.woturpg" target="_blank">Legends RPG</a>
 		</div>
     </div>
-	<a href="mailto:gmemicarra@gmail.com" class="contacto">Contact</a>
-	<a href="https://instagram.com/gamermind_ig" target="_blank" class="social-button">
-		  <!-- Icono SVG de Instagram -->
-		  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-			<path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-.75a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Z"/>
-		  </svg>
-	</a>
+
+	<!-- Pie de página con Contact, Terms of Service e Instagram -->
+	<div class="footer-links">
+		<a href="terms.html" class="contacto">Terms of Service</a>
+		<a href="mailto:gmemicarra@gmail.com" class="contacto">Contact</a>
+		<a href="https://instagram.com/gamermind_ig" target="_blank" class="social-button" title="Instagram">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+				<path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-.75a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0Z"/>
+			</svg>
+		</a>
+	</div>
 </body>
 </html>
